@@ -40,9 +40,6 @@ swooshSnd = null
 
 tubesTimer = null
 
-githubHtml = """<iframe src="http://ghbtns.com/github-btn.html?user=hyspace&repo=flappy&type=watch&count=true&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>"""
-
 floor = Math.floor
 
 main = ->
@@ -186,9 +183,7 @@ main = ->
     return
 
   create = ->
-    console.log("%chttps://github.com/hyspace/flappy", "color: black; font-size: x-large");
     ratio = window.innerWidth / window.innerHeight
-    document.querySelector('#github').innerHTML = githubHtml if ratio > 1.15 or ratio < 0.7
     document.querySelector('#loading').style.display = 'none'
 
     # Set world dimensions
@@ -295,8 +290,8 @@ main = ->
     score = 0
     # credits.renderable = true
     # credits.setText "see console log\nfor github url"
-    scoreText.setText "Flappy Bird"
-    instText.setText "TOUCH TO FLAP\nbird WINGS"
+    scoreText.setText "THE FIRM: THE GAME"
+    instText.setText "TOUCH TO FLY\nthe SUITCASE"
     gameOverText.renderable = false
     bird.body.allowGravity = false
     bird.reset game.world.width * 0.3, game.world.height / 2
