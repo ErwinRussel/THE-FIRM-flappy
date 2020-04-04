@@ -1,6 +1,6 @@
 #HTML5 flappy bird
 
-play here: http://hyspace.io/flappy/
+play here: http://erwinrussel.github.io/THE-FIRM-flappy
 
 based on http://uralozden.com/flappy/
 
