@@ -279,6 +279,7 @@ main = ->
 
     # Add controls
     game.input.onDown.add flap
+    game.input.onTap.add flap
 
     # RESET!
     reset()

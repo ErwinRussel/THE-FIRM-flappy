@@ -4,12 +4,14 @@
   "description": "flappy bird in html5",
   "devDependencies": {
     "coffee-script": "~1.7.1",
-    "gulp": "^3.5.6",
+    "gulp": "^4.0.2",
     "gulp-coffee": "~1.4.1",
     "gulp-concat": "~2.1.7",
-    "gulp-connect": "~0.3.1",
-    "gulp-uglify": "~0.2.1",
-    "gulp-util": "~2.2.14"
+    "gulp-connect": "^5.7.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "~2.2.14",
+    "jshint": "^2.11.0"
   },
   "scripts": {
     "start": "./node_modules/.bin/gulp --require coffee-script/register"
@@ -28,5 +30,10 @@
   "bugs": {
     "url": "https://github.com/hyspace/flappy/issues"
   },
-  "homepage": "https://github.com/hyspace/flappy"
+  "homepage": "https://github.com/hyspace/flappy",
+  "dependencies": {
+    "phaser": "^3.22.0",
+    "vinyl": "^2.2.0",
+    "vinyl-fs": "^3.0.3"
+  }
 }

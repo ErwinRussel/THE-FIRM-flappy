@@ -6,24 +6,22 @@ concat = require 'gulp-concat'
 uglify = require 'gulp-uglify'
 
 gulp.task 'coffee', ->
-  gulp.src ['index.coffee']
+  gulp.src ('index.coffee')
   .pipe coffee( bare: true ).on('error', gutil.log)
   .pipe gulp.dest 'tmp'
 
 gulp.task 'concat', ->
-  gulp.src ['bower_components/phaser/phaser.js', 'tmp/index.js']
+  gulp.src (['bower_components/phaser/build/phaser.js', 'tmp/index.js'])
   .pipe concat('index.min.js')
   .pipe uglify()
-  .pipe gulp.dest '.'
+  # .pipe gulp.dest (['.'])
+  .pipe gulp.dest 'build/css'
   .pipe connect.reload()
 
 gulp.task 'watch', ->
-  gulp.watch ['index.coffee', '!gulpfile.coffee'], ['coffee']
+  gulp.watch ['index.coffee', '!gulpfile.coffee'], gulp.series('coffee')
 
-gulp.task "connect", connect.server(
-  root: __dirname
-  port: 3000
-  livereload: true
-)
+gulp.task 'connect', ->
+  connect.server(root: __dirname, port: 3000, livereload: true)
 
-gulp.task 'default', ['coffee', 'concat', 'connect', 'watch']
+# gulp.task 'default', ['coffee', 'concat', 'connect', 'watch']
