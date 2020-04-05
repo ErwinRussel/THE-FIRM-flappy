@@ -284,7 +284,7 @@ main = ->
     scoreText.setText "FLAPPY FIRM"
     instText.setText '''
     AVOID THE LAWFIRMS!!!\n
-    TOUCH TO FLY
+    TAP TO FLY
     THE BRIEFCASE
     '''
     gameOverText.renderable = false
