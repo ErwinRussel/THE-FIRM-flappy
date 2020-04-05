@@ -46296,7 +46296,7 @@ main = function() {
     gameStarted = false;
     gameOver = false;
     score = 0;
-    scoreText.setText("THE FIRM: THE GAME");
+    scoreText.setText("FLAPPY FIRM");
     instText.setText("TOUCH TO FLY\nthe SUITCASE");
     gameOverText.renderable = false;
     bird.body.allowGravity = false;

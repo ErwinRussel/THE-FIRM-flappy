@@ -278,7 +278,6 @@ main = ->
     swooshSnd = game.add.audio("swoosh")
 
     # Add controls
-    game.input.onDown.add flap
     game.input.onTap.add flap
 
     # RESET!
@@ -291,7 +290,7 @@ main = ->
     score = 0
     # credits.renderable = true
     # credits.setText "see console log\nfor github url"
-    scoreText.setText "THE FIRM: THE GAME"
+    scoreText.setText "FLAPPY FIRM"
     instText.setText "TOUCH TO FLY\nthe SUITCASE"
     gameOverText.renderable = false
     bird.body.allowGravity = false

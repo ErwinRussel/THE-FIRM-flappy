@@ -14,8 +14,7 @@ gulp.task 'concat', ->
   gulp.src (['bower_components/phaser/build/phaser.js', 'tmp/index.js'])
   .pipe concat('index.min.js')
   .pipe uglify()
-  # .pipe gulp.dest (['.'])
-  .pipe gulp.dest 'build/css'
+  .pipe gulp.dest '.'
   .pipe connect.reload()
 
 gulp.task 'watch', ->
@@ -24,4 +23,4 @@ gulp.task 'watch', ->
 gulp.task 'connect', ->
   connect.server(root: __dirname, port: 3000, livereload: true)
 
-# gulp.task 'default', ['coffee', 'concat', 'connect', 'watch']
+gulp.task 'default', gulp.series(['coffee', 'concat', 'connect', 'watch'])
