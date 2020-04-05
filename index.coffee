@@ -282,7 +282,11 @@ main = ->
     # credits.renderable = true
     # credits.setText "see console log\nfor github url"
     scoreText.setText "FLAPPY FIRM"
-    instText.setText "TOUCH TO FLY\nthe SUITCASE"
+    instText.setText '''
+    AVOID THE LAWFIRMS!!!\n
+    TOUCH TO FLY
+    THE BRIEFCASE
+    '''
     gameOverText.renderable = false
     bird.body.allowGravity = false
     bird.reset game.world.width * 0.3, game.world.height / 2
