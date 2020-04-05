@@ -6,10 +6,10 @@ SPAWN_RATE = 1 / 1200
 OPENING = 100
 SCALE = 1
 
-HEIGHT = 384
-WIDTH = 288
-GAME_HEIGHT = 336
-GROUND_HEIGHT = 64
+HEIGHT = 384 
+WIDTH = 288 
+GAME_HEIGHT = 336 
+GROUND_HEIGHT = 64 
 GROUND_Y = HEIGHT - GROUND_HEIGHT
 
 parent = document.querySelector("#screen")
@@ -21,7 +21,6 @@ deadTubeBottoms = []
 deadInvs = []
 
 bg = null
-# credits = null
 tubes = null
 invs = null
 bird = null
@@ -60,6 +59,7 @@ main = ->
       tube.reset(game.world.width, tubeY)
     else
       tube = tubes.create(game.world.width, tubeY, tubeKey)
+      game.physics.enable(tube, Phaser.Physics.ARCADE)
       tube.body.allowGravity = false
 
     # Move to the left
@@ -92,6 +92,7 @@ main = ->
       inv = invs.create(toptube.x + toptube.width / 2, 0)
       inv.width = 2
       inv.height = game.world.height
+      game.physics.enable(inv, Phaser.Physics.ARCADE)
       inv.body.allowGravity = false
     inv.body.velocity.x = -SPEED
     return
@@ -188,24 +189,13 @@ main = ->
 
     # Set world dimensions
     Phaser.Canvas.setSmoothingEnabled(game.context, false)
-    game.stage.scaleMode = Phaser.StageScaleMode.SHOW_ALL
-    game.stage.scale.setScreenSize(true)
+    game.stage.scaleMode = Phaser.ScaleManager.EXACT_FIT
     game.world.width = WIDTH
     game.world.height = HEIGHT
 
+
     # Draw bg
     bg = game.add.tileSprite(0, 0, WIDTH, HEIGHT, 'bg')
-
-    # Credits 'yo
-    # credits = game.add.text(game.world.width / 2, HEIGHT - GROUND_Y + 50, "",
-    #   font: "8px \"Press Start 2P\""
-    #   fill: "#fff"
-    #   stroke: "#430"
-    #   strokeThickness: 4
-    #   align: "center"
-    # )
-    # credits.anchor.x = 0.5
-
 
     # # Add clouds group
     # clouds = game.add.group()
@@ -218,6 +208,7 @@ main = ->
 
     # Add bird
     bird = game.add.sprite(0, 0, "bird")
+    game.physics.enable(bird, Phaser.Physics.ARCADE)
     bird.anchor.setTo 0.5, 0.5
     bird.animations.add "fly", [
       0
@@ -225,15 +216,15 @@ main = ->
       2
     ], 10, true
     bird.body.collideWorldBounds = true
-    bird.body.setPolygon(
-      24,1,
-      34,16,
-      30,32,
-      20,24,
-      12,34,
-      2,12,
-      14,2
-    )
+    # bird.body.setPolygon(
+    #   24,1,
+    #   34,16,
+    #   30,32,
+    #   20,24,
+    #   12,34,
+    #   2,12,
+    #   14,2
+    # )
 
     # Add ground
     ground = game.add.tileSprite(0, GROUND_Y, WIDTH, GROUND_HEIGHT, "ground")
@@ -333,13 +324,13 @@ main = ->
           bird.animations.play()
 
         # Check game over
-        game.physics.overlap bird, tubes, ->
+        game.physics.arcade.overlap bird, tubes, ->
           setGameOver()
           fallSnd.play()
         setGameOver() if not gameOver and bird.body.bottom >= GROUND_Y
 
         # Add score
-        game.physics.overlap bird, invs, addScore
+        game.physics.arcade.overlap bird, invs, addScore
 
       else
         # rotate the bird to make sure its head hit ground
