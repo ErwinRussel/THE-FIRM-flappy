@@ -269,7 +269,7 @@ main = ->
     swooshSnd = game.add.audio("swoosh")
 
     # Add controls
-    game.input.onTap.add flap
+    game.input.onDown.add flap
 
     # RESET!
     reset()
