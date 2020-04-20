@@ -1,4 +1,8 @@
-#HTML5 flappy bird
+#FLAPPY FIRM
+
+Help THE FIRM to avoid the lawfirms.
+
+The game was used to raise money for the Dutch food banks.
 
 play here: http://erwinrussel.github.io/THE-FIRM-flappy
 
